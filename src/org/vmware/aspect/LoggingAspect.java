@@ -24,8 +24,16 @@ public class LoggingAspect {
 	public void ThirdAdvice(){
 		System.out.println("Third Advice run. on GetMethod");
 	}
+	@Before("allGetterscirclemethods()")
+	public void FourthAdvice(){
+		System.out.println("Four Advice run. on GetMethod");
+	}
 	
 	@Pointcut("execution(public * getName(..))")
 	public void allGetters(){}
+
+	@Pointcut("within(org.vmware.spring.model.Circle)")
+	public void allGetterscirclemethods(){}
+
 }
  
